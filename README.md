@@ -1,4 +1,4 @@
-# fluent-plugin-elasticsearch-timestamper
+# fluent-plugin-elasticsearch-timestamper [![Build Status](https://travis-ci.org/pikselpalette/fluent-plugin-elasticsearch-timestamper.png)](https://travis-ci.org/pikselpalette/fluent-plugin-elasticsearch-timestamper)
 Fluent plugin to ensure @timestamp is in correct format for elasticsearch
 
 ## Install
