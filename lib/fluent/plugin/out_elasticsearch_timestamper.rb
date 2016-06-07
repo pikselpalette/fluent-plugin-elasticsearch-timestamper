@@ -1,6 +1,6 @@
 module Fluent
   class ElasticsearchTimestampCheckFilter < Output
-    Fluent::Plugin.register_output('elasticsearch_timestamp_check', self)
+    Fluent::Plugin.register_output('elasticsearch_timestamper', self)
 
     config_param :tag,         :string, :default => nil
     config_param :tag_shift,   :bool,   :default => false
