@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     fluent-plugin-elasticsearch-timestamper (0.1.0)
-      fluentd
+      fluentd (~> 0.10.17)
 
 GEM
   remote: https://rubygems.org/
