@@ -2,6 +2,7 @@ require 'helper'
 require 'time'
 
 class ElasticsearchTimestampCheckerTest < Test::Unit::TestCase
+  ENV["TZ"] = "Etc/UTC"
   setup do
     @tag = 'test1'
     @time = Time.local(1,2,3,4,5,2010,nil,nil,nil,nil)
@@ -84,7 +85,7 @@ class ElasticsearchTimestampCheckerTest < Test::Unit::TestCase
     rec = {"a" => "b"}
     expected = {
       "a"           => "b",
-      "@timestamp" => "2010-05-04T02:02:01.000000+0000",
+      "@timestamp" => "2010-05-04T03:02:01.000000+0000",
     }
 
     emits = emit(CONFIG_TAG, true, [rec])
