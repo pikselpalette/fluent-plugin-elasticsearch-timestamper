@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "fluent-plugin-elasticsearch-timestamper"
-  spec.version       = "0.1.0"
+  spec.version       = "0.2.0"
   spec.authors       = ["Stephen Gran"]
   spec.email         = ["stephen.gran@piksel.com"]
   spec.description   = %q{fluent filter plugin to ensure @timestamp is in proper format}
