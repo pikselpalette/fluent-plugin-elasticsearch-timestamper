@@ -16,8 +16,9 @@ module Fluent
     def configure(conf)
       super
       @tag = conf['tag'] if conf['tag']
+      @hostname_command = conf['hostname_command'] if conf['hostname_command']
       if ( !@tag && !@remove_tag_prefix && !@remove_tag_suffix && !@add_tag_prefix && !@add_tag_suffix )
-        raise Fluent::ConfigError, "foo_bar: missing remove_tag_prefix, remove_tag_suffix, add_tag_prefix or add_tag_suffix."
+        raise Fluent::ConfigError, "elasticsearch_timestamper: missing remove_tag_prefix, remove_tag_suffix, add_tag_prefix or add_tag_suffix."
       end
     end
 
