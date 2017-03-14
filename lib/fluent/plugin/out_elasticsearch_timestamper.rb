@@ -7,12 +7,18 @@ module Fluent
     include Fluent::Mixin::RewriteTagName
     require 'date'
 
+    attr_accessor :tag, :hostname_command
+
     unless method_defined?(:log)
       define_method("log") { $log }
     end
 
     def configure(conf)
       super
+      @tag = conf['tag'] if conf['tag']
+      if ( !@tag && !@remove_tag_prefix && !@remove_tag_suffix && !@add_tag_prefix && !@add_tag_suffix )
+        raise Fluent::ConfigError, "foo_bar: missing remove_tag_prefix, remove_tag_suffix, add_tag_prefix or add_tag_suffix."
+      end
     end
 
     def start
