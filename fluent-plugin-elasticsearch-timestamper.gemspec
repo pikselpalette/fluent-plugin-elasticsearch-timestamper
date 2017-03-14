@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "fluent-plugin-elasticsearch-timestamper"
-  spec.version       = "0.2.0"
+  spec.version       = "0.3.0"
   spec.authors       = ["Stephen Gran"]
   spec.email         = ["stephen.gran@piksel.com"]
   spec.description   = %q{fluent filter plugin to ensure @timestamp is in proper format}
@@ -14,6 +14,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency 'fluentd', '~> 0.10.17'
+  spec.add_runtime_dependency "fluent-mixin-rewrite-tag-name"
   spec.add_development_dependency 'rake'
   spec.add_development_dependency "test-unit", '> 3.2.0'
 end

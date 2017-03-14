@@ -1,8 +1,11 @@
+require 'fluent/mixin/rewrite_tag_name'
+
 module Fluent
   class ElasticsearchTimestampChecker < Output
     Fluent::Plugin.register_output('elasticsearch_timestamper', self)
+    include Fluent::HandleTagNameMixin
+    include Fluent::Mixin::RewriteTagName
     require 'date'
-    config_param :tag, :string, :desc => 'The output tag name.'
 
     unless method_defined?(:log)
       define_method("log") { $log }
@@ -43,8 +46,10 @@ module Fluent
 
     def emit(tag, es, chain)
       es.each do |time, record|
+        emit_tag = tag.dup
+        filter_record(emit_tag, time, record)
         new_record = format_record(time, record)
-        router.emit(@tag, time, new_record)
+        Engine.emit(emit_tag, time, new_record)
       end
       chain.next
     end
