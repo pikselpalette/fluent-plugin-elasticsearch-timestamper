@@ -56,7 +56,7 @@ module Fluent
         emit_tag = tag.dup
         filter_record(emit_tag, time, record)
         new_record = format_record(time, record)
-        Engine.emit(emit_tag, time, new_record)
+        router.emit(emit_tag, time, new_record)
       end
       chain.next
     end
